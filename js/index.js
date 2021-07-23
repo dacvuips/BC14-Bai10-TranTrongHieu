@@ -247,7 +247,7 @@ function hienThi(dsnv) {
 
 }
 
-console.log(dsnv)
+
 
 function actionNhanVien(even) {
     var dataNV = even.target.getAttribute("data-NV")
