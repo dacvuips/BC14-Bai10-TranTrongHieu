@@ -7,7 +7,7 @@ document.getElementById('searchName').addEventListener('mouseout', timKiemNhanVi
 document.getElementById('btnThem').addEventListener('click', themModal)
 document.getElementById('btnDong').addEventListener('click', dong)
 
-
+// HÀM KHỞI TẠO NHÂN VIÊN
 
 function NhanVien(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, chucVu, gioLam) {
 
@@ -82,21 +82,7 @@ khoiTao()
 
 
 
-function themNguoiDung() {
 
-    var taiKhoan = document.getElementById('tknv').value;
-    var hoTen = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var matKhau = document.getElementById('password').value;
-    var ngayLam = document.getElementById('datepicker').value;
-    var luongCoBan = document.getElementById('luongCB').value;
-    var chucVu = document.getElementById('chucvu').value;
-    var gioLam = document.getElementById('gioLam').value;
-
-
-    valid(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, chucVu, gioLam)
-
-}
 var validator = new Validator()
 
 
@@ -208,7 +194,7 @@ function validCapNhat(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, chuc
             }
             return value
         })
-        console.log(dsnv)
+
         document.getElementById('tknv').disabled = false;
         localStorage.setItem('dsnv', JSON.stringify(dsnv));
         resetForm({})
@@ -216,6 +202,26 @@ function validCapNhat(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, chuc
         hienThi(dsnv)
 
     }
+
+}
+
+function kiemTraForm() {
+
+}
+
+function themNguoiDung() {
+
+    var taiKhoan = document.getElementById('tknv').value;
+    var hoTen = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var matKhau = document.getElementById('password').value;
+    var ngayLam = document.getElementById('datepicker').value;
+    var luongCoBan = document.getElementById('luongCB').value;
+    var chucVu = document.getElementById('chucvu').value;
+    var gioLam = document.getElementById('gioLam').value;
+
+
+    valid(taiKhoan, hoTen, email, matKhau, ngayLam, luongCoBan, chucVu, gioLam)
 
 }
 
@@ -290,8 +296,8 @@ function chonNhanVien(taiKhoan) {
             return va
         }
     })
-    document.getElementById('btnCapNhat').disabled = false;
-    document.getElementById('btnThemNV').disabled = true;
+    document.getElementById('btnCapNhat').hidden = false;
+    document.getElementById('btnThemNV').hidden = true;
 
     document.getElementById('tknv').disabled = true;
     resetForm(nhanVienCapNhat);
@@ -349,8 +355,8 @@ function timKiemNhanVien() {
 }
 
 function themModal() {
-    document.getElementById('btnCapNhat').disabled = true;
-    document.getElementById('btnThemNV').disabled = false;
+    document.getElementById('btnCapNhat').hidden = true;
+    document.getElementById('btnThemNV').hidden = false;
 
     document.getElementById('tknv').disabled = false;
     resetForm({})
